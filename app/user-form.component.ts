@@ -74,7 +74,7 @@ export class UserFormComponent {
     this.http.post('http://test-api.evermight.com/login.php', creds, { headers })
       .subscribe(
         data => { console.log(data); },
-        err => { this.authorized = err._body; }
+        err => { this.authorized = JSON.parse(err._body).success; }
       );
   }
 
