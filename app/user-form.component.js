@@ -58,7 +58,7 @@ var UserFormComponent = (function () {
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         var creds = "email=" + email + "&password=" + password + "&appkey=12";
         this.http.post('http://test-api.evermight.com/login.php', creds, { headers: headers })
-            .subscribe(function (data) { console.log(data); }, function (err) { _this.authorized = err._body; });
+            .subscribe(function (data) { console.log(data); }, function (err) { _this.authorized = JSON.parse(err._body).success; });
     };
     Object.defineProperty(UserFormComponent.prototype, "diagnostic", {
         // TODO: Remove this when we're done
